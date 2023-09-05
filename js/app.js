@@ -7,9 +7,18 @@ const timeImg = document.querySelector('[data-js="time"]')
 const timeIconContainer = document.querySelector('[data-js="time-icon"]')
 
 
-const ShowCityWeatherInfo = async (inputValue) => {
+const fetchDatas = async (inputValue) => {
     const { Key, LocalizedName } = await getCityData(inputValue);
     const [{ Temperature, WeatherText, WeatherIcon, IsDayTime }] = await getWeatherData(Key);
+
+    return {Temperature, WeatherText, WeatherIcon, IsDayTime, LocalizedName}
+}
+
+const ShowCityWeatherInfo = async (inputValue) => {
+    
+   const { Temperature, WeatherText, WeatherIcon, IsDayTime,  LocalizedName } = 
+    await fetchDatas(inputValue);
+
     const timeIcon = `<img src="./src/icons/${WeatherIcon}.svg" />`;
 
     timeImg.src = IsDayTime ? './src/day.svg' : './src/night.svg';
@@ -20,7 +29,6 @@ const ShowCityWeatherInfo = async (inputValue) => {
 
     showCard()
 }
-
 
 const showCard = () => {
     const Containsclass = cityCardContainer.classList.contains('d-none');
@@ -37,7 +45,7 @@ const showlocalStorageCity = () => {
     }
 }
 
-Cityform.addEventListener('submit', async event => {
+const getDataForm = async event => {
     event.preventDefault();
 
     const inputValue = event.target.city.value;
@@ -46,6 +54,9 @@ Cityform.addEventListener('submit', async event => {
     localStorage.setItem('city', inputValue)
 
     Cityform.reset();
-})
+}
+
+
+Cityform.addEventListener('submit', getDataForm)
 
 showlocalStorageCity();

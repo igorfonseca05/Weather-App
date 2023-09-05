@@ -15,13 +15,15 @@ const requests = async (url) => {
         if(!response.ok) {
             console.log('Não foi possível obter os dados da API')
         }
-        
+    
        return await response.json()
 
     } catch ({name, message}) {
         alert(`${name}: ${message}`)
     }
 }
+
+
 
 const getCityData = async (cityName) => { 
     const cityUrl = getCityUrl(cityName)
