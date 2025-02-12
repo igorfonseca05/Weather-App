@@ -12,4 +12,5 @@ Um diferencial importante é que os dados da última cidade pesquisada são arma
 ### Exemplo de uso:
 "O aplicativo permite consultar o clima 🌍 de qualquer lugar! Basta digitar a cidade 🔍 e pressionar ENTER 🚀. E o melhor: os dados ficam salvos 📂 no cache do navegador, sem precisar repetir a busca toda vez!"
 
+
 O link para acessar o aplicativo está disponível na barra lateral à direita. O projeto está hospedado no GitHub, permitindo fácil acesso ao código-fonte e à aplicação. Não deixe de conferir e explorar todas as funcionalidades disponíveis!
